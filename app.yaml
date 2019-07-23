@@ -3,20 +3,20 @@ api_version: 1
 threadsafe: true
 
 handlers:
-  - url: /styles
+  - url: /assets/css
     static_dir: assets/css
 
-  - url: /fonts
+  - url: /assets/fonts
     static_dir: assets/fonts
 
-  - url: /themecolor
+  - url: /assets/css/theme-color
     static_dir: assets/css/theme-color
 
-  - url: /js
+  - url: /assets/js
     static_dir: assets/js
 
-  - url: /images
-    static_dir: pictures
+  # - url: /images
+  #   static_dir: pictures
 
   - url: .*
     script: main.app

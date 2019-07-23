@@ -11,17 +11,15 @@ jinja_current_directory = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        results_template = jinja_current_directory.get_template("index.html")
-        self.response.write(results_template.render())
-        # user = users.get_current_user()
-    #     if user:
-    #         # results_template = jinja_current_directory.get_template("templates/index.html")
-    #         # self.response.write(results_template.render())
-    #     else:
-    #         self.redirect("/nouser")
-    #
-    # def post(self):
-    #     pass
+        user = users.get_current_user()
+        if user:
+            results_template = jinja_current_directory.get_template("/templates/index.html")
+            self.response.write(results_template.render())
+        else:
+            self.redirect("/nouser")
+
+    def post(self):
+        pass
 
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def post(self):
@@ -45,15 +43,15 @@ class MainHandler(webapp2.RequestHandler):
 #         results_template = jinja_current_directory.get_template("templates/health.html")
 #         self.response.write(results_template.render())
 
-# class NoUserHandler(webapp2.RequestHandler):
-#     def get(self):
-#         login_url = users.create_login_url("/")
-#         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
+class NoUserHandler(webapp2.RequestHandler):
+    def get(self):
+        login_url = users.create_login_url("/")
+        self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
 
 app = webapp2.WSGIApplication([
 ("/", MainHandler),
 # ("/receiver", ReceiverHandler),
-# ("/nouser", NoUserHandler),
+("/nouser", NoUserHandler),
 # ("/todolist" ToDoListHandler),
 ], debug=True)
