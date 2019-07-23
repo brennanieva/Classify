@@ -9,6 +9,10 @@ jinja_current_directory = jinja2.Environment(
     undefined=jinja2.StrictUndefined,
     autoescape=True)
 
+class RedirectHandler(webapp2.RequestHandler):
+    def get(self):
+        self.redirect("/index.html")
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -21,6 +25,28 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         pass
 
+class ToDoListHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/todolist.html")
+        self.response.write(results_template.render())
+
+class HealthHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/health.html")
+        self.response.write(results_template.render())
+
+class SettingsHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/settings.html")
+        self.response.write(results_template.render())
+        logout_url = users.create_logout_url("/index.html")
+        self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
+
+class NoUserHandler(webapp2.RequestHandler):
+    def get(self):
+        login_url = users.create_login_url("/index.html")
+        self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
+
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def post(self):
 #         results_template = jinja_current_directory.get_template("templates/things.html")
@@ -32,37 +58,13 @@ class MainHandler(webapp2.RequestHandler):
 #         logout_url = users.create_logout_url("/")
 #         self.response.write("Hello " + nickname + '. <a href = "' + logout_url + '">Logout here</a>')
 #         self.response.write(results_template.render(template_vars))
-class ToDoListHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_directory.get_template("/templates/todolist.html")
-        self.response.write(results_template.render())
-
-class HealthHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_directory.get_template("/templates/health.html")
-        self.response.write(results_template.render())
-#
-class SettingsHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_directory.get_template("/templates/settings.html")
-        self.response.write(results_template.render())
-        logout_url = users.create_logout_url("/index.html")
-        self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
-        # self.response.write(results_template.render(template_vars))
-#
-class NoUserHandler(webapp2.RequestHandler):
-    def get(self):
-        login_url = users.create_login_url("/index.html")
-        self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
-
-
-
 
 app = webapp2.WSGIApplication([
+("/", RedirectHandler),
 ("/index.html", MainHandler),
-# ("/receiver", ReceiverHandler),
-("/nouser", NoUserHandler),
 ("/todolist.html", ToDoListHandler),
 ("/health.html", HealthHandler),
 ("/settings.html", SettingsHandler),
+("/nouser", NoUserHandler),
+# ("/receiver", ReceiverHandler),
 ], debug=True)
