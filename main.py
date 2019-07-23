@@ -32,26 +32,37 @@ class MainHandler(webapp2.RequestHandler):
 #         logout_url = users.create_logout_url("/")
 #         self.response.write("Hello " + nickname + '. <a href = "' + logout_url + '">Logout here</a>')
 #         self.response.write(results_template.render(template_vars))
+class ToDoListHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/todolist.html")
+        self.response.write(results_template.render())
 
-# class ToDoListHandler(webapp2.RequestHandler):
-#     def post(self):
-#         results_template = jinja_current_directory.get_template("templates/todolist.html")
-#         self.response.write(results_template.render())
-
-# class HealthHandler(webapp2.RequestHandler):
-#     def get(self):
-#         results_template = jinja_current_directory.get_template("templates/health.html")
-#         self.response.write(results_template.render())
-
+class HealthHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/health.html")
+        self.response.write(results_template.render())
+#
+class SettingsHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/settings.html")
+        self.response.write(results_template.render())
+        logout_url = users.create_logout_url("/index.html")
+        self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
+        # self.response.write(results_template.render(template_vars))
+#
 class NoUserHandler(webapp2.RequestHandler):
     def get(self):
-        login_url = users.create_login_url("/")
+        login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
 
+
+
 app = webapp2.WSGIApplication([
-("/", MainHandler),
+("/index.html", MainHandler),
 # ("/receiver", ReceiverHandler),
 ("/nouser", NoUserHandler),
-# ("/todolist" ToDoListHandler),
+("/todolist.html", ToDoListHandler),
+("/health.html", HealthHandler),
+("/settings.html", SettingsHandler),
 ], debug=True)
