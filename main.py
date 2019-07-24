@@ -18,12 +18,12 @@ class MainHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         if user:
             results_template = jinja_current_directory.get_template("/templates/index.html")
-            self.response.write(results_template.render())
+            user = users.get_current_user()
+            nickname = user.nickname()
+            template_vars = {"username": nickname}
+            self.response.write(results_template.render(template_vars))
         else:
             self.redirect("/nouser")
-
-    def post(self):
-        pass
 
 class ToDoListHandler(webapp2.RequestHandler):
     def get(self):
