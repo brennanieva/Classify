@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,700,900");
 @import url("https://fonts.googleapis.com/css?family=Palanquin:300");
 @import url("https://afeld.github.io/emoji-css/emoji.css");
-
-
-
 body {
   background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);
 
@@ -37,7 +34,7 @@ body {
 #content h1 {
   cursor: default;
   position: relative;
-  height: 75px;
+  height: 100px;
   background: #2FC5BA;
   display: block;
 
@@ -110,7 +107,7 @@ h2 {
 .menu {
   font-weight: 100;
   background: #efefef;
-  width: 150px;
+  width: 190px;
   height: 100%;
   padding-left: 50px;
   position: fixed;
