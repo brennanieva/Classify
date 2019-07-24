@@ -1,7 +1,214 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,700,900");
+@import url("https://fonts.googleapis.com/css?family=Palanquin:300");
+@import url("https://afeld.github.io/emoji-css/emoji.css");
+
+
+body {
+  background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);  color: #b9abff;
+  display: grid;
+  font-family: 'Helvetica', Arial, sans-serif;
+  height: calc(100vh - 8rem);
+  padding: 4rem;
+  place-content: center;
+}
+
+.input-group {
+  display: inline-block;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  height: 4rem;
+  position: relative;
+}
+
+.input {
+  background-color: #fffaf0 ;
+  border: black;
+  border-radius: 5px;
+  color: transparent;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 100%;
+  line-height: 4rem;
+  outline: none;
+  padding: 0 1rem;
+}
+.input:focus + .input-after {
+  animation: type 1.25s ease 0.5s infinite;
+  box-shadow: none;
+  height: calc(100% - 1rem);
+  margin-left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+}
+.input:focus::placeholder {
+  opacity: 0;
+  transition: 0.15s ease;
+}
+
+.input-after {
+  background-color: #fcfcff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: 0.25s ease;
+  width: 100%;
+  z-index: -1;
+}
+
+.input-text {
+  display: inline-block;
+  font-size: 1.5rem;
+  left: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.input-text-short {
+  display: inline-block;
+  font-size: 1.5rem;
+  left: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+@keyframes type {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 21px;
+  color: #333;
+  line-height: 1.5;
+  background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);
+}
+
+.container {
+  margin: 4em auto;
+}
+
+.inner-container {
+  position: relative;
+  max-width: 20%;
+  min-width: 360px;
+  height: 300px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+
+.content {
+  position: absolute;
+  opacity: 0;
+  top: 2em;
+  left: 10%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.active {
+  display: block !important;
+  margin: 0 auto;
+  opacity: 1;
+  transition: ease-in-out 1s;
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2em 0;
+  height: 300px;
+  box-sizing: border-box;
+  transition: .3s ease;
+  box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.35);
+}
+.card:first-child, .card:nth-child(2) {
+  background: #00c4c7;
+  height: 8px;
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+  box-shadow: none;
+}
+.card:first-child {
+  margin: 0 20px;
+  background: #00b0b2;
+}
+.card:nth-child(2) {
+  margin: 0 10px;
+}
+.card .progress-container {
+  background: rgba(37, 117, 252, 0.2);
+  height: 6px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+}
+.card .progress-container .step {
+  background-color: #2575fc;
+  height: 6px;
+  width: 33%;
+  border-radius: 0 0 0 5px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #00bfc2;
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: #00CED1;
+  text-decoration: none;
+  position: relative;
+}
+a:before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid #00CED1;
+  transition: 0.3s;
+}
+a:hover:before {
+  width: 80%;
+}
+
+
 body {
   background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);
 
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: 'Palanquin', sans-serif;
   color: #333;
   line-height: normal;
   text-align: justify;
