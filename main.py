@@ -42,22 +42,28 @@ class SettingsHandler(webapp2.RequestHandler):
         logout_url = users.create_logout_url("/index.html")
         self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
 
+class AboutUsHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/about_us.html")
+        self.response.write(results_template.render())
+
 class NoUserHandler(webapp2.RequestHandler):
     def get(self):
         login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
 # class ReceiverHandler(webapp2.RequestHandler):
-#     def post(self):
-#         results_template = jinja_current_directory.get_template("templates/things.html")
-#         users_name = self.request.get("username")
-#         template_vars = {"name": users_name}
-#         user = users.get_current_user()
-#         nickname = user.nickname()
-#
-#         logout_url = users.create_logout_url("/")
-#         self.response.write("Hello " + nickname + '. <a href = "' + logout_url + '">Logout here</a>')
-#         self.response.write(results_template.render(template_vars))
+#     def get(self):
+#         self.redirect("/index.html")
+#         # results_template = jinja_current_directory.get_template("templates/things.html")
+#         # users_name = self.request.get("username")
+#         # template_vars = {"name": users_name}
+#         # user = users.get_current_user()
+#         # nickname = user.nickname()
+#         #
+#         # logout_url = users.create_logout_url("/")
+#         # self.response.write("Hello " + nickname + '. <a href = "' + logout_url + '">Logout here</a>')
+#         # self.response.write(results_template.render(template_vars))
 
 app = webapp2.WSGIApplication([
 ("/", RedirectHandler),
@@ -65,6 +71,7 @@ app = webapp2.WSGIApplication([
 ("/todolist.html", ToDoListHandler),
 ("/health.html", HealthHandler),
 ("/settings.html", SettingsHandler),
+("/about_us.html", AboutUsHandler),
 ("/nouser", NoUserHandler),
 # ("/receiver", ReceiverHandler),
 ], debug=True)
