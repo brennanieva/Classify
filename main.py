@@ -39,6 +39,14 @@ class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/settings.html")
         self.response.write(results_template.render())
+
+        username = self.request.get("first-name")
+        birthday = self.request.get("month"+"day")
+        timeZone = self.request.get("time_zone")
+        bedTime = self.request.get("bed_time")
+        health = self.request.get("health_priority")
+        mood = self.request.get("mood")
+        
         logout_url = users.create_logout_url("/index.html")
         self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
 
