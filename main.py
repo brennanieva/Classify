@@ -40,15 +40,34 @@ class SettingsHandler(webapp2.RequestHandler):
         results_template = jinja_current_directory.get_template("/templates/settings.html")
         self.response.write(results_template.render())
 
+
+
+
+        logout_url = users.create_logout_url("/index.html")
+        self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
+
+    def post(self):
+        index_template = jinja_current_directory.get_template("/templates/index.html")
+        health_template = jinja_current_directory.get_template("/templates/health.html")
         username = self.request.get("first-name")
         birthday = self.request.get("month"+"day")
         timeZone = self.request.get("time_zone")
         bedTime = self.request.get("bed_time")
         health = self.request.get("health_priority")
         mood = self.request.get("mood")
-        
-        logout_url = users.create_logout_url("/index.html")
-        self.response.write("Hello " + '! <a href = "' + logout_url + '">Logout here</a>')
+
+        Settings = {
+        "name" : username,
+        "birthday" : birthday,
+        "timeZone" : timeZone,
+        "bedTime" : bedTime,
+        "health" : health,
+        "mood" : mood,
+        }
+        Settings.put()
+        self.response.write(index_template.render(Settings))
+        self.response.write(health_template.render(Settings))
+
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
