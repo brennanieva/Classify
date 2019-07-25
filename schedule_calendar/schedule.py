@@ -11,14 +11,18 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        schedule_key = ""
+        schedule_key = "2469d3563444d6fbd6ecd75255587c3e46ed187b"
+
+        url = "https://calendarific.com/api/v2/holidays?api_key=" + schedule_key
 
         results_template = jinja_env.get_template('/schedule.html')
         self.response.write(results_template.render())
 
     def post(self):
         # description = self.request.get('zip_code')
-        schedule_key = ""
+        schedule_key = "2469d3563444d6fbd6ecd75255587c3e46ed187b"
+
+        url = "https://calendarific.com/api/v2/holidays?api_key=" + schedule_key
 
 
         print(url)
