@@ -103,3 +103,23 @@ $(document).ready(function() {
     });
 
 });
+function init(){
+  $("#button").click(onButtonClick);
+}
+
+function onButtonClick(){
+  console.log("Clicked");
+  var innerText = content.innerText  // using innerText here because it preserves newlines
+   if(innerText[innerText.length-1] === '\n')
+       innerText = innerText.slice(0,-1)             // get rid of weird extra newline
+   console.log(innerText)
+  //
+  // let searchTerm = $("#searchterm").val();
+  // console.log(searchTerm);
+  //
+  // let giphyKey = "xzwBz7E83o3mTnYE4VfFHJPNPAA1Hvpc";
+  // url = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm +"&api_key=" + giphyKey
+  // console.log(url);
+  // $.get(url, null, processResponse);
+}
+$(document).ready(init);
