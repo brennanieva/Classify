@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,700,900");
 @import url("https://fonts.googleapis.com/css?family=Palanquin:300");
 @import url("https://afeld.github.io/emoji-css/emoji.css");
+
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+
 body {
   background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);
 
@@ -329,6 +335,39 @@ button:focus {
 }
 
 /* ========= BUTTON =========*/
+input[type="submit"]{
+  background-color: #2FC5BA;
+	border-radius: 4px;
+	border: 2px solid #ffffff;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	padding: 12px 35px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+
+}
+.mu-btn {
+	background-color: #2FC5BA;
+	border-radius: 4px;
+	border: 2px solid #ffffff;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	padding: 12px 35px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.mu-btn:hover,
+.mu-btn:focus {
+	background-color: #fff;
+}
+
 
 .mu-primary-btn {
 	background-color: transparent;
@@ -513,6 +552,8 @@ button:focus {
 	color: #fff;
 	font-size: 30px;
 	font-weight: 300;
+  -webkit-animation: typing 4s steps(21, end),
+	           blink-caret .5s step-end infinite alternate;
 }
 
 .mu-featured-slider span,
@@ -521,6 +562,8 @@ button:focus {
 	color: #fff;
 	font-size: 30px;
 	font-weight: 600;
+  -webkit-animation: typing 2s steps(21, end),
+	           blink-caret .5s step-end infinite alternate;
 }
 
 .mu-featured-content {
@@ -1439,6 +1482,8 @@ button:focus {
 
 	.mu-featured-area h1 {
 		font-size: 40px;
+    -webkit-animation: typing 2s steps(21, end),
+  	           blink-caret .5s step-end infinite alternate;
 	}
 
 	.mu-featured-slider p,
