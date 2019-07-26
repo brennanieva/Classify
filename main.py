@@ -2,6 +2,8 @@ import webapp2
 from google.appengine.api import users
 import jinja2
 import os
+from twilio.rest import Client
+import time
 
 jinja_current_directory = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -35,6 +37,8 @@ class HealthHandler(webapp2.RequestHandler):
         results_template = jinja_current_directory.get_template("/templates/health.html")
         self.response.write(results_template.render())
 
+
+
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/settings.html")
@@ -55,6 +59,7 @@ class SettingsHandler(webapp2.RequestHandler):
         bedTime = self.request.get("bed_time")
         health = self.request.get("health_priority")
         mood = self.request.get("mood")
+        number = self.request.get("number")
 
         Settings = {
         "name" : username,
@@ -63,10 +68,32 @@ class SettingsHandler(webapp2.RequestHandler):
         "bedTime" : bedTime,
         "health" : health,
         "mood" : mood,
+        "number" : number,
         }
         Settings.put()
+
+        def post(self):
+            def sendSMS():
+                account_sid = "AC3d7a4655023c4eef9f7147fdc4310b1a"
+                auth_token = "917aabd65c59dd238a49ce37b7876254"
+                client = Client(account_sid, auth_token)
+
+
+                message = client.messages.create(
+                                              from_='+12055256928',
+                                              body='Take a Break! Get up, stretch, drink water!',
+                                              to='+1'+ number,
+                                          )
+
+                print(message.sid)
+                pass
+                time.sleep(14400) #4hours
+
+            while True:
+                sendSMS()
         self.response.write(index_template.render(Settings))
         self.response.write(health_template.render(Settings))
+
 
 
 class AboutUsHandler(webapp2.RequestHandler):
@@ -78,6 +105,8 @@ class NoUserHandler(webapp2.RequestHandler):
     def get(self):
         login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
+
+
 
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def get(self):
