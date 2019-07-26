@@ -2,8 +2,8 @@ import webapp2
 from google.appengine.api import users
 import jinja2
 import os
-from twilio.rest import Client
-import time
+# from twilio.rest import Client
+# import time
 
 jinja_current_directory = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -73,26 +73,26 @@ class SettingsHandler(webapp2.RequestHandler):
         Settings.put()
 
         def post(self):
-            def sendSMS():
-                account_sid = "AC3d7a4655023c4eef9f7147fdc4310b1a"
-                auth_token = "917aabd65c59dd238a49ce37b7876254"
-                client = Client(account_sid, auth_token)
-
-
-                message = client.messages.create(
-                                              from_='+12055256928',
-                                              body='Take a Break! Get up, stretch, drink water!',
-                                              to='+1'+ number,
-                                          )
-
-                print(message.sid)
-                pass
-                time.sleep(14400) #4hours
-
-            while True:
-                sendSMS()
-        self.response.write(index_template.render(Settings))
-        self.response.write(health_template.render(Settings))
+            # def sendSMS():
+            #     account_sid = "AC3d7a4655023c4eef9f7147fdc4310b1a"
+            #     auth_token = "917aabd65c59dd238a49ce37b7876254"
+            #     client = Client(account_sid, auth_token)
+            #
+            #
+            #     message = client.messages.create(
+            #                                   from_='+12055256928',
+            #                                   body='Take a Break! Get up, stretch, drink water!',
+            #                                   to='+1'+ number,
+            #                               )
+            #
+            #     print(message.sid)
+            #     pass
+            #     time.sleep(14400) #4hours
+            #
+            # while True:
+            #     sendSMS()
+            self.response.write(index_template.render(Settings))
+            self.response.write(health_template.render(Settings))
 
 
 
@@ -106,15 +106,12 @@ class NoUserHandler(webapp2.RequestHandler):
         login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
-<<<<<<< HEAD
 class WeatherHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("weather/weather.html")
         self.response.write(results_template.render())
-=======
 
 
->>>>>>> 3f051cf26c41c0310e521193dda5433ef7628f7b
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def get(self):
 #         self.redirect("/index.html")
