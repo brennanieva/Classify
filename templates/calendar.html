@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Classify</title>
+    <!-- <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/slick.css" rel="stylesheet"> -->
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+
+
+  </head>
+  <body>
+
+	<header id="mu-header" class="" role="banner">
+		<div class="container">
+			<nav class="navbar navbar-default mu-navbar">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+
+		      <a class="navbar-brand" href="index.html">Classify</a>
+
+
+		    </div>
+
+		    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav mu-menu navbar-right">
+			        <li><a href="#">HOME</a></li>
+			        <li><a href="#mu-about">TODO LIST</a></li>
+			        <li><a href="#mu-service">HEALTH</a></li>
+		            <li><a href="#mu-portfolio">SETTINGS</a></li>
+
+		      	</ul>
+		    </div> -->
+
+        <div class="menu">
+    <div class="title">MENU</div>
+    <ul class="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="todolist.html">ToDo </a></li>
+      <li><a href="health.html">Health</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <!-- <li><a href="#">Contact</a></li> -->
+    </ul>
+</div>
+		  </div>
+		</nav>
+		</div>
+	</header>
+
+
+	<section id="mu-featured-slider">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mu-featured-area">
+						<h1>Healthy</h1>
+
+
+						<!-- <div class="mu-featured-slider-wrapper">
+							<div class="mu-featured-slider" id="typed-strings">
+								<p>I am <span>UI/UX Designer</span></p>
+								<p>I am <span>Web Developer</span></p>
+		   						<p>I am <span>Photographer</span></p>
+							</div>
+							<span id="typed"></span>
+						</div> -->
+
+						<div class="mu-featured-content">
+
+							<!-- <a href="#mu-portfolio" class="mu-primary-btn view-my-work-btn">About Us</a>
+						</div> -->
+<!--
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</section>
+  <section id="mu-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-contact-area">
+
+            <div class="mu-contact-header">
+              <h2 class="mu-heading-title">Calendar</h2>
+              <span class="mu-header-dot"></span>
+              <button id="authorize_button" style="display: none;">Authorize</button>
+              <button id="signout_button" style="display: none;">Sign Out</button>
+
+              <pre id="content" style="white-space: pre-wrap;"></pre>
+
+              <script type="text/javascript">
+                // Client ID and API key from the Developer Console
+                var CLIENT_ID = '861105091786-8j5iq9c18l6iq068clpgsfpj4k2p4g07.apps.googleusercontent.com';
+                var API_KEY = 'AIzaSyBOOwBXPFKEJTrvXSLvVJuLzQ-FN7l-seQ';
+
+                // Array of API discovery doc URLs for APIs used by the quickstart
+                var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+                // Authorization scopes required by the API; multiple scopes can be
+                // included, separated by spaces.
+                var SCOPES = "https://www.googleapis.com/auth/calendar"; "https://www.googleapis.com/auth/calendar.events"; "https://www.googleapis.com/auth/calendar.settings.readonly";
+
+                var authorizeButton = document.getElementById('authorize_button');
+                var signoutButton = document.getElementById('signout_button');
+
+                /**
+                 *  On load, called to load the auth2 library and API client library.
+                 */
+                function handleClientLoad() {
+                  gapi.load('client:auth2', initClient);
+                }
+
+                /**
+                 *  Initializes the API client library and sets up sign-in state
+                 *  listeners.
+                 */
+                function initClient() {
+                  gapi.client.init({
+                    apiKey: API_KEY,
+                    clientId: CLIENT_ID,
+                    discoveryDocs: DISCOVERY_DOCS,
+                    scope: SCOPES
+                  }).then(function () {
+                    // Listen for sign-in state changes.
+                    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                    // Handle the initial sign-in state.
+                    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+                    authorizeButton.onclick = handleAuthClick;
+                    signoutButton.onclick = handleSignoutClick;
+                  }, function(error) {
+                    appendPre(JSON.stringify(error, null, 2));
+                  });
+                }
+
+                /**
+                 *  Called when the signed in status changes, to update the UI
+                 *  appropriately. After a sign-in, the API is called.
+                 */
+                function updateSigninStatus(isSignedIn) {
+                  if (isSignedIn) {
+                    authorizeButton.style.display = 'none';
+                    signoutButton.style.display = 'block';
+                    listUpcomingEvents();
+                  } else {
+                    authorizeButton.style.display = 'block';
+                    signoutButton.style.display = 'none';
+                  }
+                }
+
+                /**
+                 *  Sign in the user upon button click.
+                 */
+                function handleAuthClick(event) {
+                  gapi.auth2.getAuthInstance().signIn();
+                }
+
+                /**
+                 *  Sign out the user upon button click.
+                 */
+                function handleSignoutClick(event) {
+                  gapi.auth2.getAuthInstance().signOut();
+                }
+
+                /**
+                 * Append a pre element to the body containing the given message
+                 * as its text node. Used to display the results of the API call.
+                 *
+                 * @param {string} message Text to be placed in pre element.
+                 */
+                function appendPre(message) {
+                  var pre = document.getElementById('content');
+                  var textContent = document.createTextNode(message + '\n');
+                  pre.appendChild(textContent);
+                }
+
+                /**
+                 * Print the summary and start datetime/date of the next ten events in
+                 * the authorized user's calendar. If no events are found an
+                 * appropriate message is printed.
+                 */
+                function listUpcomingEvents() {
+                  gapi.client.calendar.events.list({
+                    'calendarId': 'primary',
+                    'timeMin': (new Date()).toISOString(),
+                    'showDeleted': false,
+                    'singleEvents': true,
+                    'maxResults': 10,
+                    'orderBy': 'startTime'
+                  }).then(function(response) {
+                    var events = response.result.items;
+                    appendPre('Upcoming events:');
+
+                    if (events.length > 0) {
+                      for (i = 0; i < events.length; i++) {
+                        var event = events[i];
+                        var when = event.start.dateTime;
+                        if (!when) {
+                          when = event.start.date;
+                        }
+                        appendPre(event.summary + ' (' + when + ')')
+                      }
+                    } else {
+                      appendPre('No upcoming events found.');
+                    }
+                  });
+                }
+
+              </script>
+
+            </div>
+
+            <div class="mu-contact-content">
+              <div class="row">
+
+                <div class="col-md-12">
+                  <div class="mu-contact-top">
+
+                    <div class="row">
+                      <div class="col-sm-4">
+
+
+                    </div>
+                  </div>
+                </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- End Contact Content -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	</main>
+
+
+
+	<!-- Start footer -->
+  <footer id="mu-footer" role="contentinfo">
+      <div class="container">
+        <div class="mu-footer-area">
+          <p> Google CSSI 2019 </p>
+        </div>
+      </div>
+
+  </footer>
+	<!-- End footer -->
+  <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/slick.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.filterizr.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/typed.min.js"></script>
+    <script src="assets/js/jquery.appear.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.lineProgressbar.js"></script>
+
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+
+
+
+
+  </body>
+</html>
