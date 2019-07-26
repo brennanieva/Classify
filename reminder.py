@@ -17,7 +17,7 @@ def sendSMS():
     message = client.messages.create(
                                   from_='+12055256928',
                                   body='Take a Break! Get up, stretch, drink water!',
-                                  to='+12538885523'
+                                  to='+'+ number,
                               )
 
     print(message.sid)
