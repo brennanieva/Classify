@@ -106,11 +106,11 @@ class NoUserHandler(webapp2.RequestHandler):
         login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
+        
 class WeatherHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("weather/weather.html")
         self.response.write(results_template.render())
-
 
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def get(self):
