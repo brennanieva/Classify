@@ -71,7 +71,7 @@ class SettingsHandler(webapp2.RequestHandler):
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
-        results_template = jinja_current_directory.get_template("/templates/about_us.html")
+        results_template = jinja_current_directory.get_template("about_us.html")
         self.response.write(results_template.render())
 
 class NoUserHandler(webapp2.RequestHandler):
@@ -79,6 +79,10 @@ class NoUserHandler(webapp2.RequestHandler):
         login_url = users.create_login_url("/index.html")
         self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
 
+class WeatherHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("weather/weather.html")
+        self.response.write(results_template.render())
 # class ReceiverHandler(webapp2.RequestHandler):
 #     def get(self):
 #         self.redirect("/index.html")
@@ -100,5 +104,6 @@ app = webapp2.WSGIApplication([
 ("/settings.html", SettingsHandler),
 ("/about_us.html", AboutUsHandler),
 ("/nouser", NoUserHandler),
+("/weather", WeatherHandler),
 # ("/receiver", ReceiverHandler),
 ], debug=True)
