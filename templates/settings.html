@@ -109,7 +109,7 @@
                 First Name <br>
                 <input type = "text" name = "first-name" placeholder = "first name">
                 <br>
-                <br>
+                <br><br>
                 Birthday <br>
                 <select name = "month">
                   <option value = "january">January</option>
@@ -157,8 +157,10 @@
                   <option value = "twenty-ninth">29</option>
                   <option value = "thirtieth">30</option>
                   <option value = "thirty-first">31</option>
-                </select>
-                <br>
+                </select><br><br>
+                <br>  SMS Number <br> Tick to receive notifications <br>
+                  <input type = "text" name = "number" placeholder = "number"> <input type="checkbox" id="check" name="check"><br><br>
+
                 <br>
                 Time Zone <br>
                 <select name = "time_zone">
@@ -167,7 +169,7 @@
                   <option value = "mt">Mountain Time</option>
                   <option value = "pdt">Pacific Daylight Time</option>
                 </select>
-                  <br>
+                  <br><br>
                   <br>
                 Bed Time <br>
                 <select name = "bed_time">
@@ -194,7 +196,7 @@
                   <option value = "one"> 1:00</option>
                 </select>
                 <br>
-                <br>
+                <br><br>
                 Health Priority <br>
                 <select name = "health_priority">
                   <option value = "drink_more">Drink More Water</option>
@@ -202,27 +204,42 @@
                   <option value = "exercise">Exercise More</option>
                   <option value = "more_sleep">Go to Bed Earlier</option>
                 </select>
+
                 <br>
-                <br>
-                I want to feel... <br>
-                <select name = "mood">
-                  <option value = "inspired">Inspired</option>
-                  <option value = "confident">Confident</option>
-                  <option value = "happy">Happy</option>
-                </select>
-                <br>
-                <br>
-                Display: <br>
-                <select name = "display">
-                  <option value = "dark_mode">Dark Mode</option>
-                  <option value = "light_mode">Light Mode</option>
-                </select>
-                SMS Number <br>
-                <input type = "text" name = "number" placeholder = "number">
-                <label class="check">
+
+                <!-- <label class="check">
                   <input type="checkbox"/>
                   <div class="box"></div>
-                </label>
+                  <br> -->
+                  <br><br>
+                  I want to feel... <br>
+                  <select name = "mood">
+                    <option value = "inspired">Inspired</option>
+                    <option value = "confident">Confident</option>
+                    <option value = "happy">Happy</option>
+                  </select>
+                </label><br><br>
+                Display: <br>
+                <div class="toggleWrapper">
+                  <input type="checkbox" class="dn" id="dn"/>
+                  <label for="dn" class="toggle">
+                    <span class="toggle__handler">
+                      <span class="crater crater--1"></span>
+                      <span class="crater crater--2"></span>
+                      <span class="crater crater--3"></span>
+                    </span>
+                    <span class="star star--1"></span>
+                    <span class="star star--2"></span>
+                    <span class="star star--3"></span>
+                    <span class="star star--4"></span>
+                    <span class="star star--5"></span>
+                    <span class="star star--6"></span>
+                  </label>
+                </div>
+
+              <br><br>
+
+
                 <br>
                 <br>
                 <br>
@@ -265,10 +282,10 @@
 
 
 	<!-- Start footer -->
-	<footer id="mu-footer" role="contentinfo">
+  <footer id="mu-footer" role="contentinfo">
 			<div class="container">
 				<div class="mu-footer-area">
-
+          <p> Google CSSI 2019 </p>
 				</div>
 			</div>
 
