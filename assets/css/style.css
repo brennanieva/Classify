@@ -445,6 +445,29 @@ input[type="submit"]{
 	padding: 12px 35px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+
+}
+
+.mu-submit-btn {
+	background-color: transparent;
+	border-radius: 4px;
+	border: 2px solid #ffffff;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	padding: 12px 35px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex; justify-content: center;
+}
+.mu-submit-btn:hover,
+.mu-submit-btn:focus {
+	background-color: #fff;
 }
 
 .mu-primary-btn:hover,
@@ -1365,10 +1388,20 @@ input[type="submit"]{
 		font-size: 14px;
 		margin: 10px 5px;
 	}
+  .mu-submit-btn {
+		font-size: 14px;
+		padding: 12px 22px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex; justify-content: center;
+	}
+
 
 	.mu-primary-btn {
 		font-size: 14px;
 		padding: 12px 22px;
+
 	}
 
 	.mu-simplefilter li{

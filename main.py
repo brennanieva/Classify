@@ -107,8 +107,21 @@ class AboutUsHandler(webapp2.RequestHandler):
 
 class NoUserHandler(webapp2.RequestHandler):
     def get(self):
-        login_url = users.create_login_url("/index.html")
-        self.response.write('You are not logged in! Login here: <a href="' + login_url + '">click here</a>')
+        results_template = jinja_current_directory.get_template("/templates/nouser.html")
+        self.response.write(results_template.render())
+        # [START user_details]
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
+                nickname, logout_url)
+        else:
+            login_url = users.create_login_url('/')
+            greeting = '<a href="{}">Sign in</a>'.format(login_url)
+        # [END user_details]
+        self.response.write(
+            '<html><body>{}</body></html>'.format(greeting))
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
