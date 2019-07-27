@@ -1,0 +1,24 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /assets/css/styles
+  static_dir: styles
+
+- url: /assets/js
+  static_dir: js
+
+- url: /.*
+  script: weather.app
+
+
+
+
+
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
