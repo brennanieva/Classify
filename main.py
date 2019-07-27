@@ -1,10 +1,16 @@
 import webapp2
+import twilio
+
 from google.appengine.api import users
 from google.appengine.ext import ndb
 import jinja2
 import os
 from datastore_stuff import ToDoList
 from seed_data import seed_datas
+import sched
+import time
+
+from twilio.rest import Client
 # from google.cloud import datastore
 # from datastore import ToDoList
 # Retrieve Datastore
@@ -73,10 +79,22 @@ class HealthHandler(webapp2.RequestHandler):
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/settings.html")
-        
+
         self.response.write(results_template.render())
         logout_url = users.create_logout_url("/index.html")
         self.response.write('! <a href = "' + logout_url + '">Logout here</a>')
+    # def post(self):
+    #     results_template = jinja_current_directory.get_template("/templates/settings.html")
+    #     number = self.request.get("number")
+    #     minute = self.request.get("minute")
+    #
+    #     Settings = {"number" : number,
+    #     "minute" : minute,}
+
+
+
+
+
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
