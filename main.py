@@ -1,5 +1,5 @@
 import webapp2
-import twilio
+# import twilio
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -10,7 +10,7 @@ from seed_data import seed_datas
 import sched
 import time
 
-from twilio.rest import Client
+# from twilio.rest import Client
 # from google.cloud import datastore
 # from datastore import ToDoList
 # Retrieve Datastore
