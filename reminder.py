@@ -14,8 +14,8 @@ client = Client(account_sid, auth_token)
 
 message = client.messages.create(
                               from_='+12055256928',
-                              body='Snap me if you got this bc im testing something & have no cell reception in the laundry room',
-                              to='+15107314515'
+                              body="Reminder to Move! Get up, go stretch, drink water",
+                              to='+14797771344'
                           )
 
 print(message.sid)

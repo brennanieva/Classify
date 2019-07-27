@@ -29,6 +29,16 @@ class RedirectHandler(webapp2.RequestHandler):
     def get(self):
         self.redirect("/index.html")
 
+class CalendarHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/templates/calendar.html")
+        self.response.write(results_template.render())
+
+class WeatherHandler(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_current_directory.get_template("/../weather/weather.html")
+        self.response.write(results_template.render())
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -108,6 +118,8 @@ class LoadDataHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
 ("/", RedirectHandler),
 ("/index.html", MainHandler),
+("/calendar.html",CalendarHandler),
+("/weather.html", WeatherHandler),
 ("/todolist.html", ToDoListHandler),
 ("/health.html", HealthHandler),
 ("/settings.html", SettingsHandler),
