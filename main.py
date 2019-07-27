@@ -73,6 +73,7 @@ class HealthHandler(webapp2.RequestHandler):
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/settings.html")
+        
         self.response.write(results_template.render())
         logout_url = users.create_logout_url("/index.html")
         self.response.write('! <a href = "' + logout_url + '">Logout here</a>')

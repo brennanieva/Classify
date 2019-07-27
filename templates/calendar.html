@@ -73,26 +73,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="mu-featured-area">
-						<h1>Healthy</h1>
+						<h1>Calendar</h1>
 
 
-						<!-- <div class="mu-featured-slider-wrapper">
-							<div class="mu-featured-slider" id="typed-strings">
-								<p>I am <span>UI/UX Designer</span></p>
-								<p>I am <span>Web Developer</span></p>
-		   						<p>I am <span>Photographer</span></p>
-							</div>
-							<span id="typed"></span>
-						</div> -->
+
 
 						<div class="mu-featured-content">
 
-							<!-- <a href="#mu-portfolio" class="mu-primary-btn view-my-work-btn">About Us</a>
-						</div> -->
-<!--
-					</div>
-				</div>
-			</div> -->
+
 		</div>
 	</section>
   <section id="mu-contact">
@@ -104,10 +92,12 @@
             <div class="mu-contact-header">
               <h2 class="mu-heading-title">Calendar</h2>
               <span class="mu-header-dot"></span>
-              <button id="authorize_button" style="display: none;">Authorize</button>
-              <button id="signout_button" style="display: none;">Sign Out</button>
+              <pre id="task" <pre id="task" style="white-space: pre-wrap;"></pre>
+              <br><br><br>
+              <button id="authorize_button" class="mu-btn view-my-work-btn" style="display: none;">Authorize</button>
+              <button id="signout_button" class="mu-btn view-my-work-btn" style="display: none;">Sign Out</button>
 
-              <pre id="content" style="white-space: pre-wrap;"></pre>
+
 
               <script type="text/javascript">
                 // Client ID and API key from the Developer Console
@@ -190,7 +180,7 @@
                  * @param {string} message Text to be placed in pre element.
                  */
                 function appendPre(message) {
-                  var pre = document.getElementById('content');
+                  var pre = document.getElementById('task');
                   var textContent = document.createTextNode(message + '\n');
                   pre.appendChild(textContent);
                 }
