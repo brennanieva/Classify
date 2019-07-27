@@ -57,9 +57,7 @@
     <ul class="nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="todolist.html">ToDo </a></li>
-      <li><a href="calendar.html">Calendar</a></li>
       <li><a href="health.html">Health</a></li>
-      <li><a href="weather.html">Weather</a></li>
       <li><a href="settings.html">Settings</a></li>
       <!-- <li><a href="#">Contact</a></li> -->
     </ul>
@@ -106,31 +104,32 @@
             <div class="mu-contact-header">
               <h2 class="mu-heading-title">Todo List</h2>
               <span class="mu-header-dot"></span>
-
+              <p>To Do</p>
 
             </div>
-            <br><br><br><br><br>
+
             <section id="content">
+              <!-- <input type="hidden" id="hidden" name ="custId" value="forDatastore"> -->
               <h1>To-Do List</h1>
-              <a id="button" type="submit" value="submit" class="mu-btn view-my-work-btn">Submit</a>
-              <ol contenteditable="true">
+              <form method="POST">
+              <input id="button" type="submit" value="submit" class="mu-btn view-my-work-btn">Submit</input>
+              <ol id="list" contenteditable="true">
                 <li>Item 1</li>
                 <li>Item 2</li>
                 <li>Item 3</li>
                 <li>Item 4</li>
               </ol>
+              <input type="hidden" id="hidden" name="hidden" value="forDatastore">
+            </form>
             </section>
-            <br><br><br><br><br>
-
-
-
             <div class="mu-contact-content">
               <div class="row">
 
                 <div class="col-md-12">
                   <div class="mu-contact-top">
 
-
+                    <div class="row">
+                      <div class="col-sm-4">
 
 
                     </div>
@@ -156,23 +155,19 @@
 
 
 	<!-- Start footer -->
-  <footer id="mu-footer" role="contentinfo">
+	<footer id="mu-footer" role="contentinfo">
 			<div class="container">
 				<div class="mu-footer-area">
-          <p> Google CSSI 2019 </p>
+
 				</div>
 			</div>
 
 	</footer>
 	<!-- End footer -->
-  <script async defer src="https://apis.google.com/js/api.js"
-    onload="this.onload=function(){};handleClientLoad()"
-    onreadystatechange="if (this.readyState === 'complete') this.onload()">
-  </script>
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-<script type="text/javascript" src="assets/js/script.js"></script>
-
+  <script type="text/javascript" src="assets/js/script.js"></script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
