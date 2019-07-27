@@ -25,21 +25,9 @@ jinja_current_directory = jinja2.Environment(
     autoescape=True)
 
 # Page handlers
-
-
 class RedirectHandler(webapp2.RequestHandler):
     def get(self):
         self.redirect("/index.html")
-
-class CalendarHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_directory.get_template("/templates/calendar.html")
-        self.response.write(results_template.render())
-
-class WeatherHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_current_directory.get_template("/weather/weather.html")
-        self.response.write(results_template.render())
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -67,8 +55,11 @@ class ToDoListHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
         self.response.write(results_template.render())
+
     def post(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
+        hidden = self.request.get("hidden")
+        seed_datas(hidden)
         self.response.write(results_template.render())
 
 class HealthHandler(webapp2.RequestHandler):
@@ -113,6 +104,7 @@ class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
         seed_datas()
 
+
 app = webapp2.WSGIApplication([
 ("/", RedirectHandler),
 ("/index.html", MainHandler),
@@ -122,7 +114,4 @@ app = webapp2.WSGIApplication([
 ("/about_us.html", AboutUsHandler),
 ("/nouser", NoUserHandler),
 ("/seed-data", LoadDataHandler),
-("/weather.html", WeatherHandler),
-("/calendar.html", CalendarHandler),
-
 ], debug=True)
