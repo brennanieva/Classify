@@ -1,31 +1,41 @@
 
 
-import os
-import sched
-import time
+# import os
+# import sched
+# import time
 
+
+#
 from twilio.rest import Client
 
-import time
+account_sid = 'AC3d7a4655023c4eef9f7147fdc4310b1a'
+auth_token = '917aabd65c59dd238a49ce37b7876254'
+client = Client(account_sid, auth_token)
 
-def sendSMS():
-    account_sid = "AC3d7a4655023c4eef9f7147fdc4310b1a"
-    auth_token = "917aabd65c59dd238a49ce37b7876254"
-    client = Client(account_sid, auth_token)
+message = client.messages.create(
+                              from_='+12055256928',
+                              body='Snap me if you got this bc im testing something & have no cell reception in the laundry room',
+                              to='+15107314515'
+                          )
 
-
-    message = client.messages.create(
-                                  from_='+12055256928',
-                                  body='Take a Break! Get up, stretch, drink water!',
-                                  to='+'+ number,
-                              )
-
-    print(message.sid)
-    pass
-    time.sleep(14400) #4hours
-
-while True:
-    sendSMS()
+print(message.sid)
+    # pass
+    # time.sleep(60) #4hours
+#
+# while True:
+#     sendSMS()
+#
+# from twilio.rest import Client
+#
+# ACCOUNT_SID = 'AC3d7a4655023c4eef9f7147fdc4310b1a'
+# AUTH_TOKEN = '917aabd65c59dd238a49ce37b7876254'
+#
+# client = Client(ACCOUNT_SID, AUTH_TOKEN)
+# notification = client.notify.services('ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') \
+#     .notifications.create(
+#         to_binding='{"binding_type":"sms", "address":"+12538885523"}',
+#         body='Knok-Knok! This is your first Notify SMS')
+# print(notification.sid)
 
 # credentials
 
