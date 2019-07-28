@@ -101,10 +101,10 @@ class SettingsHandler(webapp2.RequestHandler):
 
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
-        results_template = jinja_current_directory.get_template("about_us.html")
+        results_template = jinja_current_directory.get_template("/templates/about_us.html")
         self.response.write(results_template.render())
     def post(self):
-        results_template = jinja_current_directory.get_template("about_us.html")
+        results_template = jinja_current_directory.get_template("/templates/about_us.html")
         self.response.write(results_template.render())
 
 class NoUserHandler(webapp2.RequestHandler):
