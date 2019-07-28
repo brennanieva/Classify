@@ -3,6 +3,8 @@ import webapp2
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
+
+
 import jinja2
 import os
 from datastore_stuff import ToDoList
@@ -109,7 +111,7 @@ class NoUserHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/nouser.html")
         self.response.write(results_template.render())
-        # [START user_details]
+            # [START user_details]
         user = users.get_current_user()
         if user:
             nickname = user.nickname()
@@ -122,6 +124,8 @@ class NoUserHandler(webapp2.RequestHandler):
         # [END user_details]
         self.response.write(
             '<html><body>{}</body></html>'.format(greeting))
+
+
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):

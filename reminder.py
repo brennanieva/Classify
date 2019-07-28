@@ -1,11 +1,8 @@
 
-
 # import os
 # import sched
 # import time
 
-
-#
 from twilio.rest import Client
 
 account_sid = 'AC3d7a4655023c4eef9f7147fdc4310b1a'
@@ -15,7 +12,7 @@ client = Client(account_sid, auth_token)
 message = client.messages.create(
                               from_='+12055256928',
                               body="Reminder to Move! Get up, go stretch, drink water",
-                              to='+14797771344'
+                              to='+12538885523'
                           )
 
 print(message.sid)
