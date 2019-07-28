@@ -92,12 +92,12 @@
 						</div>
 
 						<div class="mu-featured-content">
-              <a href="/" class="mu-primary-btn" data-onsuccess="onSignIn" id="signin">Sign In</a>
+              <a href="/" class="mu-primary-btn" data-onsuccess="onSignIn" id="signin"> Sign In </a>
 
               <!-- <div style="display: flex;
   align-items: center;
-  justify-content: center;" id="my-signin2"></div>
-  <script>
+  justify-content: center;" id="my-signin2"></div> -->
+ <!-- <script>
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
     }
@@ -114,8 +114,8 @@
         'onsuccess': onSuccess,
         'onfailure': onFailure
       });
-    } -->
-    <script>
+    }
+
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -123,7 +123,7 @@
       console.log('Image URL: ' + profile.getImageUrl());
       console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
-  </script>
+  </script>  -->
 
 					</div>
 				</div>

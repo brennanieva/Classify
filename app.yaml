@@ -15,6 +15,9 @@ handlers:
   - url: /assets/js
     static_dir: assets/js
 
+  - url: /assets/images
+    static_dir: assets/images
+
   # - url: /images
   #   static_dir: pictures
 
