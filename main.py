@@ -38,7 +38,7 @@ class CalendarHandler(webapp2.RequestHandler):
 
 class WeatherHandler(webapp2.RequestHandler):
     def get(self):
-        results_template = jinja_current_directory.get_template("/../weather/weather.html")
+        results_template = jinja_current_directory.get_template("/weather.html")
         self.response.write(results_template.render())
 
 class MainHandler(webapp2.RequestHandler):

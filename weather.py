@@ -13,11 +13,11 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         weather_key = "fc1a305754d1452dbe1175203192307"
 
-        results_template = jinja_env.get_template('/weather.html')
+        results_template = jinja_env.get_template('/templates/weather.html')
         self.response.write(results_template.render())
 
     def post(self):
-        zip_code = 98230;
+        # zip_code = 98230;
         # description = self.request.get('zip_code')
         weather_key = "fc1a305754d1452dbe1175203192307"
         url_day = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" + weather_key + "&q=" + zip_code + "&num_of_days=1&tp=3&format=xml"
