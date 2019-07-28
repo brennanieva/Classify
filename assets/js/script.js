@@ -108,11 +108,22 @@ function init(){
 }
 
 function onButtonClick(){
-  console.log("Clicked");
-  var innerText = content.innerText  // using innerText here because it preserves newlines
-   if(innerText[innerText.length-1] === '\n')
-       innerText = innerText.slice(0,-1)             // get rid of weird extra newline
-   console.log(innerText)
+  // console.log("Clicked");
+  // var innerText = content.innerText
+  // console.log(innerText);
+  //    // using innerText here because it preserves newlines
+  //  if(innerText[innerText.length-1] === '\n')
+  //      innerText = innerText.slice(0,-1)             // get rid of weird extra newline
+  //  console.log(innerText)
+  list = $('#list');
+
+  list_items = ''
+
+  list.children().each(function () {
+    list_items += $(this).text() + ','
+  });
+
+   $("#hidden").val(list_items);
   //
   // let searchTerm = $("#searchterm").val();
   // console.log(searchTerm);

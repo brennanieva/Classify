@@ -13,7 +13,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         weather_key = "fc1a305754d1452dbe1175203192307"
 
-        results_template = jinja_env.get_template('/weather.html')
+        results_template = jinja_env.get_template('/templates/weather.html')
         self.response.write(results_template.render())
 
     def post(self):

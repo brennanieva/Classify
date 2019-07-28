@@ -57,7 +57,9 @@
     <ul class="nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="todolist.html">ToDo </a></li>
+      <li><a href="calendar.html">Calendar</a></li>
       <li><a href="health.html">Health</a></li>
+      <li><a href="weather.html">Weather</a></li>
       <li><a href="settings.html">Settings</a></li>
       <!-- <li><a href="#">Contact</a></li> -->
     </ul>
@@ -158,8 +160,8 @@
                   <option value = "thirtieth">30</option>
                   <option value = "thirty-first">31</option>
                 </select><br><br>
-                <br>  SMS Number <br> Tick to receive notifications <br>
-                  <input type = "text" name = "number" placeholder = "number"> <input type="checkbox" id="check" name="check"><br><br>
+                <br>  SMS Number for Move Reminders<br> How often? (in minutes)<br>
+                  <input type = "text" name = "number" placeholder = "SMS"> <input type = "text" name = "minute" placeholder = "minutes"><br><br>
 
                 <br>
                 Time Zone <br>
@@ -219,8 +221,8 @@
                     <option value = "happy">Happy</option>
                   </select>
                 </label><br><br>
-                Display: <br>
-                <div class="toggleWrapper">
+                <!-- Display: <br> -->
+                <!-- <div class="toggleWrapper">
                   <input type="checkbox" class="dn" id="dn"/>
                   <label for="dn" class="toggle">
                     <span class="toggle__handler">
@@ -235,16 +237,29 @@
                     <span class="star star--5"></span>
                     <span class="star star--6"></span>
                   </label>
-                </div>
+                </div> -->
 
               <br><br>
+              <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
 
+              <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+             <script>
+                 function goPython(){
+                     $.ajax({
+                       url: "reminder.py",
+                      context: document.body
+                     }).done(function() {
+                      alert('finished python script');;
+                     });
+                 }
+             </script>
                 <br>
                 <br>
                 <br>
                 <br>
-                <a href="index.html" class="mu-btn view-my-work-btn">Save & Go Home<a>
+                <a href="index.html" onclick="goPython()" class="mu-btn view-my-work-btn">Save & Go Home<a>
+
                   <br>
               </form>
             </div>
