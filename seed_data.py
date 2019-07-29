@@ -2,6 +2,12 @@ from datastore_stuff import ToDoList
 
 def seed_datas(hidden):
     input = hidden.split(",")
-    print(input[0])
-    print(hidden)
-    ToDoList(user_input=hidden).put()
+    # print(input[0])
+    # print(hidden)
+    todo = ToDoList()
+    for task in input:
+        todo.user_input.append(task)
+
+
+    todo.put()
+    print("Array of user tasks: "+ str(todo))

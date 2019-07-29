@@ -116,12 +116,15 @@ function onButtonClick(){
   //      innerText = innerText.slice(0,-1)             // get rid of weird extra newline
   //  console.log(innerText)
   list = $('#list');
+  console.log(list);
+  console.log("innerText is: "+ list[0]["innerText"]);
+  list_items=list[0]["innerText"];
 
-  list_items = ''
-
-  list.children().each(function () {
-    list_items += $(this).text() + ','
-  });
+  // list_items = ''
+  //
+  // list.children().each(function () {
+  //   list_items += $(this).text() + ','
+  // });
 
    $("#hidden").val(list_items);
   //

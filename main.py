@@ -4,7 +4,6 @@ import webapp2
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-
 import jinja2
 import os
 from datastore_stuff import ToDoList
@@ -64,6 +63,7 @@ class MainHandler(webapp2.RequestHandler):
             self.redirect("/nouser")
 
 class ToDoListHandler(webapp2.RequestHandler):
+
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
         self.response.write(results_template.render())
@@ -71,8 +71,22 @@ class ToDoListHandler(webapp2.RequestHandler):
     def post(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
         hidden = self.request.get("hidden")
+        print("post")
+        print("Hidden is: "+ hidden)
         seed_datas(hidden)
-        self.response.write(results_template.render())
+
+        output = ""
+        todolist_query = ToDoList.query().fetch(1)
+        todolist_query_1 = todolist_query[0]
+        print("To do list queried from datastore: " + str(todolist_query_1))
+        new_list = todolist_query_1.user_input
+        for thing in new_list:
+            output = output + str(thing) + "\n"
+        print("Should be user tasks from to do list: " + output)
+        print("hi")
+        template_vars = {"todolist": output}
+        self.response.write(results_template.render(template_vars))
+
 
 class HealthHandler(webapp2.RequestHandler):
     def get(self):
