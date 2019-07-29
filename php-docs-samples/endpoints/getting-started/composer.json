@@ -1,0 +1,16 @@
+{
+    "require": {
+        "silex/silex": " ^1.3",
+        "symfony/console": " ^3.0",
+        "google/auth": "^1.5.1"
+    },
+    "require-dev": {
+        "symfony/browser-kit": " ^3.0",
+        "paragonie/random_compat": " ^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Google\\Cloud\\Samples\\Appengine\\Endpoints\\": ""
+        }
+    }
+}

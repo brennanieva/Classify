@@ -1,0 +1,5 @@
+{
+    "require": {
+        "google/cloud-tasks": "^1.0.0"
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "paragonie/random_compat": "^2.0"
+    }
+}
