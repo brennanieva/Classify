@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style media="screen">
+    span a{
+      font-weight: bold;
+      }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Classify</title>
-    <!-- <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/> -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="assets/css/slick.css" rel="stylesheet"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="manifest" href="assets/images/site.webmanifest">
+    <!-- <link rel="shortcut icon" type="image/icon" href="assets/images/favicon.ico"/> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/slick.css" rel="stylesheet"> -->
     <link href="assets/css/magnific-popup.css" rel="stylesheet">
     <link id="switcher" href="assets/css/theme-color/default-theme.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
@@ -64,9 +69,7 @@
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="health.html">Health</a></li>
       <li><a href="weather.html">Weather</a></li>
-      <li><a href="about_us.html">About Us</a></li>
       <li><a href="settings.html">Settings</a></li>
-
       <!-- <li><a href="#">Contact</a></li> -->
     </ul>
 </div>
@@ -81,10 +84,17 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="mu-featured-area">
-						<h1>ToDo</h1>
+						<h1>About Us</h1>
 
 
-
+						<!-- <div class="mu-featured-slider-wrapper">
+							<div class="mu-featured-slider" id="typed-strings">
+								<p>I am <span>UI/UX Designer</span></p>
+								<p>I am <span>Web Developer</span></p>
+		   						<p>I am <span>Photographer</span></p>
+							</div>
+							<span id="typed"></span>
+						</div> -->
 
 						<div class="mu-featured-content">
 
@@ -103,32 +113,33 @@
           <div class="mu-contact-area">
 
             <div class="mu-contact-header">
-              <h2 class="mu-heading-title">Todo List</h2>
+              <h2 class="mu-heading-title">About Us</h2>
               <span class="mu-header-dot"></span>
-              <p>To Do</p>
+              <p>
 
+                <p> <br>Increased stress in students invites more problems to arise such as drug and alcohol problems, lower grades and more. The ever-so-present link between organization and mental health is something that affects everyone every day; as organization improves, as does your mental health. Due to the recent rise in stress-related mental health issues in university students, we decided to create an app that reduces stress and makes life easier. What you do is difficult. Why not make how you organize it easier? That is why we created Classify.<br>
+                Classify is your go-to organizational app. It is unlike any other organizational app on the market due to its unique purpose of addressing the multiple factors surrounding stress: encouraging healthy lifestyle, organization and time management. Classify is an app made by students for students.<br>Upon logging in, the user can customize the homepage that greets them and tells them the day’s weather. They can set their bedtime for reminders and even change their page’s display by using light and dark mode. On other pages, they can enter their to-do list and learn about what they prioritize in terms of their health.
+<br><br><br><br><br><br>
+
+                <b>Classify is an app created for students by students, but can be tailored to anyone</b> <br><br><br><br><br><br>
+                <b>Brenna Nieva</b> was born and raised in Seattle, Washington. This fall, she will be majoring in Computer Science at Western Washington University in their Computer Science Scholars Program. <br>
+                <b>brennanieva.me</b><br>
+                  <b>Linkedin: Brenna Nieva</b>
+                  <br><br>
+                  <b>Caroline Glazier</b> is a student from North Vancouver, British Columbia. She will be studying Statistics and Analytics at the University of North Carolina at Chapel Hill in the fall.   <br>
+                  <b>Linkedin: Caroline Glazier</b>
+                <br><br>
+                <b>Daniel Villarreal</b> is a student from Clarskville, Arkansas. He will be majoring in Computer Science at Arkansas Tech University in the fall.  <br>
+                <b>Linkedin: Daniel Villarreal</b>
+
+              </p>
+              </div><div>
+              <!-- <h3> <b>Clasify is an app created for students by students, but can be taliored to anyone</b> </h3><br><BR>  -->
             </div>
 
-            <section id="content">
-              <!-- <input type="hidden" id="hidden" name ="custId" value="forDatastore" > -->
-              <h1>To-Do List</h1>
-              <form method="POST">
-              <input id="button" type="submit" value="submit" class="mu-submit-btn" style="margin: auto;" ></input>
-              <ol id="list" contenteditable="true">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-              </ol>
-              <input type="hidden" id="hidden" name="hidden">
-            </form>
-            </section>
-{% for item in todolist -%}
-            <p>{{item}}</p>
-{%- endfor%}
             <div class="mu-contact-content">
               <div class="row">
-<Br><br><Br><br>
+
                 <div class="col-md-12">
                   <div class="mu-contact-top">
 
@@ -159,19 +170,20 @@
 
 
 	<!-- Start footer -->
-  <footer id="mu-footer" role="contentinfo">
-			<div class="container">
-				<div class="mu-footer-area">
-          <p> Google CSSI 2019 </p>
-				</div>
-			</div>
 
-	</footer>
+    <footer id="mu-footer" role="contentinfo">
+        <div class="container">
+          <div class="mu-footer-area">
+            <p> Google CSSI 2019 </p>
+          </div>
+        </div>
+
+    </footer>
 	<!-- End footer -->
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
