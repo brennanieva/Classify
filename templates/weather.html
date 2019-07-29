@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style media="screen">
+    <!-- <style media="screen">
     body {
       background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);  color: #b9abff;
       display: grid;
@@ -165,9 +165,9 @@
 
     }
 
-    </script>
-    <!-- <link rel ="stylesheet" href="/styles/weather.css"> -->
-    <!-- <script src="/scripts/weather.js"></script> -->
+  </script>-->
+    <link rel ="stylesheet" href="/assets/css/weather.css">
+    <script src="/assets/scripts/weather.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   </head>
   <body>
@@ -175,7 +175,7 @@
       <h1>Today's Weather</h1> <br>
     </div>
     <input type="textbox" id="searchterm" placeholder="zip code,postal code or city name"> <br>
-    <input type="button" id="click" value="submit"> <br> <br>
+    <input type="submit" id="click" value="submit" onclick="window.location='/weather.html'"></input> <br> <br>
     <div class ="output">
       <div id="temp_C">
         <h5>Temperature in Celsius:
