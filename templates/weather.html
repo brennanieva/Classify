@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <style media="screen">
+    <form>
+      <input type="textbox" id="searchterm" placeholder="zip code,postal code or city name"> <br>
+      <input type="button" id="click" value="submit"></input>
+      <input type=button onClick="location.href='index.html'" value='Go Home'></input> <br> <br>
+    </form>
+    <style media="screen">
     body {
       background: linear-gradient(-90deg, #2FC5BA, #62C6C9, #2FC5BA);  color: #b9abff;
       display: grid;
@@ -70,7 +75,7 @@
       height: 100vh;
       overflow-x: hidden;
       overflow-y: scroll;
-      font-size: 100%;
+      font-size: 133%;
       font-style: normal;
       font-weight: 300;
       line-height: 1;
@@ -79,6 +84,7 @@
       color: #0b0f3b
     }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript">
     function processResponse(response){
       console.log(response);
@@ -104,6 +110,8 @@
       let url_day = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" + weatherKey + "&q=" + searchTerm + "&num_of_days=1&tp=3&format=xml"
 
       console.log(url_day);
+
+      $.get(url_day, null, processResponse)
 
       var x = new XMLHttpRequest();
       x.open("GET", url_day, true);
@@ -156,26 +164,18 @@
 
     }
 
-    function init(){
-      $("#click").click(onButtonClick);
+    function init(){$("#click").click(onButtonClick);}
 
-
-    window.onLoad = init;
     $(document).ready(init);
 
-    }
 
-  </script>-->
-    <link rel ="stylesheet" href="/assets/css/weather.css">
-    <script src="/assets/scripts/weather.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  </script>
+    <!-- <link rel ="stylesheet" href="/assets/css/weather.css"> -->
   </head>
   <body>
     <div id="date">
       <h1>Today's Weather</h1> <br>
     </div>
-    <input type="textbox" id="searchterm" placeholder="zip code,postal code or city name"> <br>
-    <input type="submit" id="click" value="submit" onclick="window.location='/weather.html'"></input> <br> <br>
     <div class ="output">
       <div id="temp_C">
         <h5>Temperature in Celsius:
