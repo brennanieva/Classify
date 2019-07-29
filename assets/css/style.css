@@ -425,6 +425,8 @@ input[type="submit"]{
 	padding: 12px 35px;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
+  text-align: center;
+  margin: auto;
 }
 
 .mu-btn:hover,
@@ -463,7 +465,11 @@ input[type="submit"]{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  display: flex; justify-content: center;
+  display: flex;
+  justify-content: center;
+  display: block;
+  max-width: 300px;
+  margin: auto;
 }
 .mu-submit-btn:hover,
 .mu-submit-btn:focus {
