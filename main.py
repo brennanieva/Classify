@@ -118,11 +118,6 @@ class SettingsHandler(webapp2.RequestHandler):
     #     Settings = {"number" : number,
     #     "minute" : minute,}
 
-
-
-
-
-
 class AboutUsHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/about_us.html")
@@ -134,17 +129,21 @@ class AboutUsHandler(webapp2.RequestHandler):
 class NoUserHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/nouser.html")
-        self.response.write(results_template.render())
             # [START user_details]
         user = users.get_current_user()
         if user:
+            self.response.write(results_template.render())
+
             nickname = user.nickname()
             logout_url = users.create_logout_url('/')
             greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
                 nickname, logout_url)
         else:
             login_url = users.create_login_url('/')
+            template_vars={"login": login_url}
             greeting = '<a href="{}">Sign in</a>'.format(login_url)
+            self.response.write(results_template.render(template_vars))
+
         # [END user_details]
         self.response.write(
             '<html><body>{}</body></html>'.format(greeting))
