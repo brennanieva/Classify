@@ -119,6 +119,8 @@ function onButtonClick(){
   console.log(list);
   console.log("innerText is: "+ list[0]["innerText"]);
   list_items=list[0]["innerText"];
+  list_items= list_items.replace(/\n/g, " ")
+  console.log(list_items);
 
   // list_items = ''
   //

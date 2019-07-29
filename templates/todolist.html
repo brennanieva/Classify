@@ -116,12 +116,12 @@
                 <li>Item 3</li>
                 <li>Item 4</li>
               </ol>
-              <input type="hidden" id="hidden" name="hidden" value="forDatastore">
+              <input type="hidden" id="hidden" name="hidden">
             </form>
             </section>
-
-            <p>{{todolist}}</p>
-
+{% for item in todolist -%}
+            <p>{{item}}</p>
+{%- endfor%}
             <div class="mu-contact-content">
               <div class="row">
 <Br><br><Br><br>

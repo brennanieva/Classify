@@ -2,6 +2,7 @@ from datastore_stuff import ToDoList
 
 def seed_datas(hidden):
     input = hidden.split(",")
+    print("This is the input " + str(input))
     # print(input[0])
     # print(hidden)
     todo = ToDoList()

@@ -63,38 +63,98 @@ class MainHandler(webapp2.RequestHandler):
             self.redirect("/nouser")
 
 class ToDoListHandler(webapp2.RequestHandler):
-
     def get(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
+        print("get")
+        hidden = self.request.get("hidden")
+        print("This is the hidden output: " + hidden)
+
         output = ""
         todolist_query = ToDoList.query().fetch(1)
-        todolist_query_1 = todolist_query[0]
-        print("To do list queried from datastore: " + str(todolist_query_1))
+
+        print(todolist_query)
+
+        todolist_query_1 = todolist_query[-1]
         new_list = todolist_query_1.user_input
-        for thing in new_list:
-            output = output + str(thing) + "\n"
-        print("Should be user tasks from to do list: " + output)
-        print("hi")
+
+        # last_item = todolist_query[equal]
+        # print(last_item)
+        split_list = str(new_list).replace("u", "" , 1)
+        split_list = split_list.replace("'", "")
+        split_list = split_list.replace("[", "")
+        split_list = split_list.replace("]", "")
+        split_list = split_list.split(" ")
+        # for item in last_item:
+        output = split_list
+
+        print(output)
+
+        # print("Should be user tasks from to do list: " + output)
         template_vars = {"todolist": output}
         self.response.write(results_template.render(template_vars))
+        # print("To do list queried from datastore: " + str(todolist_query_1))
+    # def get(self):
+    #     results_template = jinja_current_directory.get_template("/templates/todolist.html")
+    #     print("get")
+    #     hidden = self.request.get("hidden")
+    #     print("This is the hidden output: " + hidden)
+    #
+    #     output = ""
+    #     todolist_query = ToDoList.query().fetch()
+    #
+    #     print(todolist_query)
+    #
+    #     todolist_query_1 = todolist_query[0]
+    #     new_list = todolist_query_1.user_input
+    #
+    #
+    #     for equal in range(len(todolist_query)):
+    #         print("This is the range: " + str(equal))
+    #         if todolist_query[equal] == self.request.get("hidden"):
+    #             last_item = todolist_query[equal]
+    #             print(last_item)
+    #             split_list = str(last_item).replace("u", "" , 0)
+    #             split_list = split_list.replace("'", "")
+    #             split_list = split_list.replace("[", "")
+    #             split_list = split_list.replace("]", "")
+    #             split_list = split_list.split(" ")
+    #             # for item in last_item:
+    #             output = split_list
+    #
+    #     print(output)
+    #
+    #     # print("Should be user tasks from to do list: " + output)
+    #     template_vars = {"todolist": output}
+    #     self.response.write(results_template.render(template_vars))
+    #     # print("To do list queried from datastore: " + str(todolist_query_1))
+
 
     def post(self):
         results_template = jinja_current_directory.get_template("/templates/todolist.html")
         hidden = self.request.get("hidden")
         print("post")
         print("Hidden is: "+ hidden)
+
         seed_datas(hidden)
 
         output = ""
         todolist_query = ToDoList.query().fetch(1)
         todolist_query_1 = todolist_query[0]
-        print("To do list queried from datastore: " + str(todolist_query_1))
+        # print("To do list queried from datastore: " + str(todolist_query_1))
         new_list = todolist_query_1.user_input
-        for thing in new_list:
-            output = output + str(thing) + "\n"
-        print("Should be user tasks from to do list: " + output)
-        print("hi")
-        template_vars = {"todolist": output}
+        print("This is the new list: " + str(new_list))
+        split_list = str(new_list).replace("u", "" , 1)
+        split_list = split_list.replace("'", "")
+        split_list = split_list.replace("[", "")
+        split_list = split_list.replace("]", "")
+        split_list = split_list.split(" ")
+        # for thing in new_list:
+        # output =  "<p>" + output + str(split_list) + "<p>"
+        output = split_list
+        template_vars ={
+        "todolist": output,
+        "newOutput": output
+        }
         self.response.write(results_template.render(template_vars))
 
 
@@ -153,7 +213,6 @@ class NoUserHandler(webapp2.RequestHandler):
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
         seed_datas()
-
 
 app = webapp2.WSGIApplication([
 ("/", RedirectHandler),
